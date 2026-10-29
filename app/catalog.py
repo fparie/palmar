@@ -7,14 +7,14 @@ from pathlib import Path
 SHOP_URL = "https://imperionism.com/shop"
 CACHE_PATH = Path(__file__).with_name("catalog_cache.json")
 
-TITLE_RE = re.compile(r'<h2[^>]*>\s*<a[^>]*product/([^"]*"+/[^>]*>(.*?)</a>\s*</h2>', re.S)
+TITLE_RE = re.compile(r'<h2[^>]*>\s*<a[^>]*product/([a-z0-9-]+)/[^>]*>(.*?)</a>\s*</h2>', re.S)
 PRICE_RE = re.compile(r'class="[^"]*wc-block-components-product-price[^"]*".*?<bdi>(.*?)</bdi>', re.S)
 TAG_RE = re.compile(r"<[^>]+>")
 
 
 def _clean(text):
     text = html_lib.unescape(text)
-    return TAG_RE.sub("", text).strip().replace("\xa0", " ")
+    return TAG_RE.sub("", text).strip().replace("\u00a0", " ")
 
 
 def parse_shop_html(page):
