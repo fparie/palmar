@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+app/palmar.db
+app/uploads/
+app/catalog_cache.json
