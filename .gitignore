@@ -3,3 +3,6 @@ __pycache__/
 app/palmar.db
 app/uploads/
 app/catalog_cache.json
+php/palmar.db
+php/uploads/
+php/catalog_cache.json
